@@ -1,0 +1,118 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --Cyan: hsl(179, 62%, 43%);
+  --BrightYellow: hsl(71, 73%, 54%);
+  --LightGray: hsl(204, 43%, 93%);
+  --GrayishBlue: hsl(218, 22%, 67%);
+  --CyanDark: hsla(178, 48%, 43%, 1);
+  --padding: 20px;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  background-color: var(--LightGray);
+  color: white;
+  display: grid;
+   width: 100vw;
+  height: 100vh;
+  grid-template-columns: 15% 1fr 1fr 15%;
+  grid-template-rows: 10% 1fr 1fr 1fr 10%;
+  grid-template-areas: 
+    ". . . ."
+    ". offer offer ."
+    ". subscription subscription ."
+    ". benefits benefits ."
+    ". . . .";
+}
+
+@media screen and (min-width: 375px) {
+  .offer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: var(--padding);
+    grid-area: offer;
+  }
+
+  .offer__title {
+    color: var(--Cyan);
+    margin-bottom: 15px;
+  }
+
+  .offer__subtitle {
+    color: var(--BrightYellow);
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .offer__description {
+    color: var(--GrayishBlue);
+    font-size: 0.9rem;
+    line-height: 200%;
+  }
+
+  .subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: var(--CyanDark);
+    padding: var(--padding);
+    grid-area: subscription;
+  }
+
+  .subscription__payment {
+    display: flex;
+    align-items: center;
+  }
+
+  .subscription__money {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .subscription__time {
+    margin-left: 10px;
+  }
+
+  .subscription__button {
+    background: var(--BrightYellow);
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .benefits{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: var(--Cyan);
+    padding: var(--padding);
+    grid-area: benefits;
+  }
+
+  .benefits__list {
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 150%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+
+}
