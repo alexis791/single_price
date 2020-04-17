@@ -10,7 +10,7 @@
   --LightGray: hsl(204, 43%, 93%);
   --GrayishBlue: hsl(218, 22%, 67%);
   --CyanDark: hsla(178, 48%, 43%, 1);
-  --padding: 20px;
+  --padding: 15px 20px;
 }
 
 body {
@@ -18,20 +18,30 @@ body {
   font-size: 1rem;
   background-color: var(--LightGray);
   color: white;
-  display: grid;
-   width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
   height: 100vh;
-  grid-template-columns: 15% 1fr 1fr 15%;
-  grid-template-rows: 10% 1fr 1fr 1fr 10%;
-  grid-template-areas: 
-    ". . . ."
-    ". offer offer ."
-    ". subscription subscription ."
-    ". benefits benefits ."
-    ". . . .";
 }
 
-@media screen and (min-width: 375px) {
+@media (min-width: 320px) {
+  .container{
+    width: 70%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr .3fr .7fr 1fr;
+    grid-template-areas: 
+    "offer offer"
+    "subscription subscription"
+    "subscription subscription"
+    "benefits benefits";
+    -webkit-box-shadow: 0px 0px 40px -24px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -24px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 40px -24px rgba(0,0,0,0.75);
+  }
+
   .offer {
     background-color: white;
     display: flex;
@@ -40,17 +50,16 @@ body {
     align-items: flex-start;
     padding: var(--padding);
     grid-area: offer;
+    border-radius: 5px 5px 0 0;
   }
 
   .offer__title {
     color: var(--Cyan);
-    margin-bottom: 15px;
   }
 
   .offer__subtitle {
     color: var(--BrightYellow);
     font-weight: 700;
-    margin-bottom: 15px;
   }
 
   .offer__description {
@@ -80,11 +89,12 @@ body {
   }
 
   .subscription__time {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   .subscription__button {
     background: var(--BrightYellow);
+    cursor: pointer;
     font-weight: 700;
     text-align: center;
     width: 100%;
@@ -94,6 +104,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 15px;
+    -webkit-box-shadow: 0px 8px 24px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 8px 24px -12px rgba(0,0,0,0.75);
+    box-shadow: 0px 8px 24px -12px rgba(0,0,0,0.75);
   }
 
   .benefits{
@@ -104,6 +117,7 @@ body {
     background-color: var(--Cyan);
     padding: var(--padding);
     grid-area: benefits;
+    border-radius: 0 0 5px 5px;
   }
 
   .benefits__list {
@@ -113,6 +127,22 @@ body {
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media (min-width: 960px) {
+  .container{
+    width: 35%;
+    height: 50%;
+    grid-template-areas: 
+    "offer offer"
+    "offer offer"
+    "subscription benefits"
+    "subscription benefits";
+  }
 
+  .subscription {
+    border-bottom-left-radius: 5px;
+  }
+
+  .benefits {
+    border-radius: 0 0 5px 0;
+  }
 }
